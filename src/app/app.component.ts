@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ChillFlix';
+  series = 'Series';
+  film = 'Films';
+  movieW = 240;
+  movieH = 160;
 }
