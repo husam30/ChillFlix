@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Show } from './shared/module/show.model';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ChillFlix';
-  series = 'Series';
-  film = 'Films';
-  movieW = 240;
-  movieH = 160;
+  public show: Show[] = [
+    {
+      title: 'Interstellar',
+      director: 'Tarentino',
+      releaseDate: 2014,
+      url: 'vdgdg'
+    },
+    {
+      title: 'Titanic',
+      director: 'James cameron',
+      releaseDate: 314,
+      url: 'fcaese'
+    }
+  ];
 }

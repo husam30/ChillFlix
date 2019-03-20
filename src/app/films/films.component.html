@@ -1,0 +1,17 @@
+<div class="row">{{ show.title }}</div>
+<div class="row">
+  <div class="col">
+    <iframe
+      width="{{ filmWidth }}"
+      height="{{ filmHeight }}"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <div>
+      <p>Film Title : {{ show.title }}</p>
+      <p>Film Release Date : {{ show.releaseDate }}</p>
+      <p>Film Director : {{ show.director }}</p>
+    </div>
+  </div>
+</div>
