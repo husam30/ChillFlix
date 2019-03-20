@@ -22,6 +22,3 @@ describe('FilmsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-<script src='https://www.youtube.com/iframe_api' />;
-<script src='angular-youtube-embed.js' />;

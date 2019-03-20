@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Show } from './shared/module/show.model';
+import { Show } from './shared/model/show.model';
 
 @Component({
   selector: 'app-root',
@@ -13,13 +13,13 @@ export class AppComponent {
       title: 'Interstellar',
       director: 'Tarentino',
       releaseDate: 2014,
-      url: 'vdgdg'
+      url: 'https://www.youtube.com/embed/-RP7GO1NKRw'
     },
     {
       title: 'Titanic',
       director: 'James cameron',
       releaseDate: 314,
-      url: 'fcaese'
+      url: 'https://www.youtube.com/embed/-RP7GO1NKRw'
     }
   ];
 }

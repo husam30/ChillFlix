@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Show } from '../shared/module/show.model';
+import { Show } from '../shared/model/show.model';
 
 @Component({
   selector: 'app-films',
