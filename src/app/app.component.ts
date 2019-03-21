@@ -11,15 +11,15 @@ export class AppComponent {
   public show: Show[] = [
     {
       title: 'Interstellar',
-      director: 'Tarentino',
+      director: 'Christopher Nolan',
       releaseDate: 2014,
-      url: 'https://www.youtube.com/embed/-RP7GO1NKRw'
+      url: 'https://www.youtube.com/embed/2LqzF5WauAw'
     },
     {
       title: 'Titanic',
       director: 'James cameron',
-      releaseDate: 314,
-      url: 'https://www.youtube.com/embed/-RP7GO1NKRw'
+      releaseDate: 1997,
+      url: 'https://www.youtube.com/embed/2e-eXJ6HgkQ'
     }
   ];
 }
