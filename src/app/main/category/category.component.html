@@ -1,3 +1,5 @@
 <p>{{ category.name }}</p>
 
-<app-films *ngFor="let item of category.show" [show]="item"></app-films>
+<div class="row">
+  <app-films *ngFor="let item of category.show" [show]="item"></app-films>
+</div>
