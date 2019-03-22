@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FilmsComponent } from './films/films.component';
 import { SafePipe } from './shared/model/savepipe.model';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
-  declarations: [AppComponent, FilmsComponent, SafePipe],
+  declarations: [AppComponent, FilmsComponent, SafePipe, CategoryComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
