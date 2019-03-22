@@ -1,15 +1,19 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Show } from '../shared/model/show.model';
+import { Show } from 'src/app/shared/model/show.model';
 
 @Component({
   selector: 'app-films',
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.css']
 })
-export class FilmsComponent {
+export class FilmsComponent implements OnInit {
   @Input()
   public show: Show;
 
   public filmWidth = 240;
   public filmHeight = 160;
+
+  constructor() {}
+
+  ngOnInit() {}
 }
