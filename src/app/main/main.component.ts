@@ -15,7 +15,17 @@ export class MainComponent implements OnInit {
           title: 'Interstellar',
           director: 'Christopher Nolan',
           releaseDate: 2014,
+          description: 'good',
+          movieCategory: 'action',
           url: 'https://www.youtube.com/embed/2LqzF5WauAw'
+        },
+        {
+          title: 'Titanic',
+          director: 'James cameron',
+          releaseDate: 1997,
+          description: 'good',
+          movieCategory: 'action',
+          url: 'https://www.youtube.com/embed/2e-eXJ6HgkQ'
         }
       ]
     },
@@ -26,12 +36,16 @@ export class MainComponent implements OnInit {
           title: 'Interstellar',
           director: 'Christopher Nolan',
           releaseDate: 2014,
+          description: 'good',
+          movieCategory: 'action',
           url: 'https://www.youtube.com/embed/2LqzF5WauAw'
         },
         {
           title: 'Titanic',
           director: 'James cameron',
           releaseDate: 1997,
+          description: 'good',
+          movieCategory: 'action',
           url: 'https://www.youtube.com/embed/2e-eXJ6HgkQ'
         }
       ]
