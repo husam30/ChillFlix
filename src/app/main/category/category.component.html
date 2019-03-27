@@ -1,5 +1,9 @@
-<p>{{ category.name }}</p>
+<br />
+<h2>{{ category.name }}</h2>
 
 <div class="row">
-  <app-films *ngFor="let item of category.show" [show]="item"></app-films>
+
+  <app-films *ngFor="let item of category.shows" [show]="item"></app-films>
 </div>
+<br />
+

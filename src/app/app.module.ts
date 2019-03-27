@@ -8,6 +8,8 @@ import { SafePipe } from './shared/model/savepipe.model';
 import { MainComponent } from './main/main.component';
 import { CategoryComponent } from './main/category/category.component';
 import { FilmsComponent } from './main/category/films/films.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FilmViewComponent } from './film-view/film-view.component';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,10 @@ import { FilmsComponent } from './main/category/films/films.component';
     FilmsComponent,
     SafePipe,
     MainComponent,
-    CategoryComponent
+    CategoryComponent,
+    FilmViewComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })

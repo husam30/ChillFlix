@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../shared/model/category.model';
+import { CategoryService } from '../shared/services/category.service';
 
 @Component({
   selector: 'app-main',
@@ -7,38 +8,15 @@ import { Category } from '../shared/model/category.model';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  public categories: Category[] = [
-    {
-      name: 'action',
-      show: [
-        {
-          title: 'Interstellar',
-          director: 'Christopher Nolan',
-          releaseDate: 2014,
-          url: 'https://www.youtube.com/embed/2LqzF5WauAw'
-        }
-      ]
-    },
-    {
-      name: 'Romance',
-      show: [
-        {
-          title: 'Interstellar',
-          director: 'Christopher Nolan',
-          releaseDate: 2014,
-          url: 'https://www.youtube.com/embed/2LqzF5WauAw'
-        },
-        {
-          title: 'Titanic',
-          director: 'James cameron',
-          releaseDate: 1997,
-          url: 'https://www.youtube.com/embed/2e-eXJ6HgkQ'
-        }
-      ]
-    }
-  ];
-
-  constructor() {}
-
-  ngOnInit() {}
+  constructor(private readonly catergoryService: CategoryService) {}
+  public categories: Category[];
+  ngOnInit() {
+    this.getCategory();
+  }
+  public getCategory() {
+    const allcars$ = this.catergoryService.getAllcategories();
+    allcars$.subscribe(categories1 => {
+      this.categories = categories1;
+    });
+  }
 }
