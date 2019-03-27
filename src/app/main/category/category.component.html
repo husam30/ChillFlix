@@ -2,6 +2,8 @@
 <h2>{{ category.name }}</h2>
 
 <div class="row">
+
   <app-films *ngFor="let item of category.shows" [show]="item"></app-films>
 </div>
 <br />
+
