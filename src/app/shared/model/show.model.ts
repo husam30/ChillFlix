@@ -1,5 +1,6 @@
 /** A movie object */
 export class Show {
+  public id: number;
   public title: string;
   public releaseDate: number;
   public url: string;

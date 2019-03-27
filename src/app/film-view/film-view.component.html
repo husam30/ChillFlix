@@ -1,0 +1,20 @@
+<br />
+<div class="col">
+  <h3>{{ movieTitle }}</h3>
+  <br />
+  <iframe
+    width="{{ filmWidth }}"
+    height="{{ filmHeight }}"
+    [src]="createSafeYoutubeUrl(movieUrl)"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+  <br />
+  <br />
+  <h6>Director: {{ movieDirector }}</h6>
+  <h6>Relase date : {{ movieReleaseDate }}</h6>
+  <h6>Category: {{ movieCategory }}</h6>
+  <h6>Description: {{ movieDescription }}</h6>
+</div>
+<br />

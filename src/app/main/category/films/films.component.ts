@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Show } from 'src/app/shared/model/show.model';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-films',
@@ -13,7 +16,18 @@ export class FilmsComponent implements OnInit {
   public filmWidth = 240;
   public filmHeight = 160;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+  onSlect(show) {
+    this.router.navigate([
+      '/',
+      show.title,
+      show.releaseDate,
+      show.url,
+      show.director,
+      show.movieCategory,
+      show.description
+    ]);
+  }
 }
