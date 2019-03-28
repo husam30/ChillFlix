@@ -1,20 +1,20 @@
 <br />
 <div class="col">
-  <h3>{{ movieTitle }}</h3>
+  <h3>{{ show?.title }}</h3>
   <br />
   <iframe
     width="{{ filmWidth }}"
     height="{{ filmHeight }}"
-    [src]="createSafeYoutubeUrl(movieUrl)"
+    [src]="createSafeYoutubeUrl(show?.url)"
     frameborder="0"
     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen
   ></iframe>
   <br />
   <br />
-  <h6>Director: {{ movieDirector }}</h6>
-  <h6>Relase date : {{ movieReleaseDate }}</h6>
-  <h6>Category: {{ movieCategory }}</h6>
-  <h6>Description: {{ movieDescription }}</h6>
+  <h6>Director: {{ show?.director }}</h6>
+  <h6>Relase date : {{ show?.releaseDate }}</h6>
+  <h6>Category: {{ show?.movieCategory }}</h6>
+  <h6>Description: {{ show?.description }}</h6>
 </div>
 <br />

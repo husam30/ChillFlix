@@ -20,14 +20,6 @@ export class FilmsComponent implements OnInit {
 
   ngOnInit() {}
   onSlect(show) {
-    this.router.navigate([
-      '/',
-      show.title,
-      show.releaseDate,
-      show.url,
-      show.director,
-      show.movieCategory,
-      show.description
-    ]);
+    this.router.navigate(['/', show.id]);
   }
 }

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { Show } from '../shared/model/show.model';
+import { CategoryService } from '../shared/services/category.service';
+import { Category } from '../shared/model/category.model';
+import { ShowService } from '../shared/services/show.service';
 
 @Component({
   selector: 'app-film-view',
@@ -8,34 +12,24 @@ import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./film-view.component.css']
 })
 export class FilmViewComponent implements OnInit {
-  public filmWidth = 240;
-  public filmHeight = 160;
-  public movieTitle: string;
-  public movieReleaseDate: string;
-  public movieUrl: string;
-  public movieDirector: string;
-  public movieCategory: string;
-  public movieDescription: string;
-
+  public show: Show;
+  public filmWidth = 200;
+  public filmHeight = 140;
   constructor(
     private route: ActivatedRoute,
-    private readonly sanitizer: DomSanitizer
+    private readonly sanitizer: DomSanitizer,
+    private readonly showservice: ShowService
   ) {}
 
   ngOnInit() {
-    let title = this.route.snapshot.paramMap.get('title');
-    this.movieTitle = title;
-    let releaseDate = this.route.snapshot.paramMap.get('releaseDate');
-    this.movieReleaseDate = releaseDate;
-    let url = this.route.snapshot.paramMap.get('url');
-    this.movieUrl = url;
-    let director = this.route.snapshot.paramMap.get('director');
-    this.movieDirector = director;
-    let movieCategory = this.route.snapshot.paramMap.get('movieCategory');
-    this.movieCategory = movieCategory;
-    let movieDescription = this.route.snapshot.paramMap.get('description');
-    this.movieDescription = movieDescription;
+    this.getOneShow();
   }
+  public getOneShow() {
+    // tslint:disable-next-line: radix
+    const id = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.showservice.getOneShow(id).subscribe(show => (this.show = show));
+  }
+
   public createSafeYoutubeUrl(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
       'https://www.youtube.com/embed/' + url
