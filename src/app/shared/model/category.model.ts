@@ -2,6 +2,6 @@ import { Show } from './show.model';
 
 export class Category {
   public id: number;
-  public show: Show[];
+  public shows: Show[];
   public name: string;
 }

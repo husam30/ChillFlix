@@ -10,6 +10,8 @@ import { CategoryComponent } from './main/category/category.component';
 import { FilmsComponent } from './main/category/films/films.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FilmViewComponent } from './film-view/film-view.component';
+import { FilmFormComponent } from './film-form/film-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,15 @@ import { FilmViewComponent } from './film-view/film-view.component';
     SafePipe,
     MainComponent,
     CategoryComponent,
-    FilmViewComponent
+    FilmViewComponent,
+    FilmFormComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
