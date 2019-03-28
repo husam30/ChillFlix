@@ -1,10 +1,6 @@
+import { CreateShow } from './create-show.model';
+
 /** A movie object */
-export class Show {
+export class Show extends CreateShow {
   public id: number;
-  public title: string;
-  public releaseDate: number;
-  public url: string;
-  public director: string;
-  public description: string;
-  public movieCategory: string;
 }

@@ -1,24 +1,18 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Show } from '../shared/model/show.model';
-import { CreateShow } from '../shared/model/create-show.model';
-export class ShowForm extends FormGroup {
+export class ShowForm1 extends FormGroup {
   constructor() {
     super({
-      title: new FormControl('', [
-        Validators.required,
-        Validators.maxLength(100)
-      ]),
-      releaseDate: new FormControl('', [
-        Validators.required,
-        Validators.maxLength(100)
-      ]),
-      description: new FormControl('', [
-        Validators.required,
-        Validators.maxLength(100)
-      ]),
+      title: new FormControl('', [Validators.maxLength(100)]),
+      releaseDate: new FormControl('', [Validators.maxLength(100)]),
+      description: new FormControl('', [Validators.maxLength(100)]),
       movieCategory: new FormControl('', [
-        Validators.required,
-        Validators.maxLength(100)
+        Validators.maxLength(100),
+        Validators.required
+      ]),
+      movieId: new FormControl('', [
+        Validators.maxLength(100),
+        Validators.required
       ]),
       url: new FormControl('', [Validators.maxLength(200)]),
       director: new FormControl('', [Validators.max(99)])
@@ -26,8 +20,9 @@ export class ShowForm extends FormGroup {
   }
 
   /** Gets the model of this form */
-  public getModel(): CreateShow {
+  public getModel(): Show {
     return {
+      id: this.controls.movieId.value,
       title: this.controls.title.value,
       releaseDate: this.controls.releaseDate.value,
       url: this.controls.url.value,
