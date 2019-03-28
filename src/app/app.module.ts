@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilmViewComponent } from './film-view/film-view.component';
 import { FilmFormComponent } from './film-form/film-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CategoryFormComponent } from './category-form/category-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MainComponent,
     CategoryComponent,
     FilmViewComponent,
-    FilmFormComponent
+    FilmFormComponent,
+    CategoryFormComponent
   ],
   imports: [
     BrowserModule,
