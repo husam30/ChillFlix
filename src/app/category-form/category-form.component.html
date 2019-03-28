@@ -1,0 +1,19 @@
+<br />
+
+<br />
+<div class="container">
+  <form [formGroup]="Form1" (submit)="onFormSubmit()">
+    <div class="form-group">
+      <label>Category Name*</label>
+      <input
+        placeholder="Category Name"
+        class="form-control"
+        type="text"
+        formControlName="CategoryName"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="Form1?.invalid">
+      Submit
+    </button>
+  </form>
+</div>
