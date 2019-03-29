@@ -2,7 +2,7 @@
 
 <br />
 <div class="container">
-  <form [formGroup]="Form1" (submit)="onFormSubmit()">
+  <form [formGroup]="addForm" (submit)="onFormSubmit()">
     <div class="form-group">
       <label>Category Name*</label>
       <input
@@ -12,7 +12,37 @@
         formControlName="CategoryName"
       />
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="Form1?.invalid">
+    <button type="submit" class="btn btn-primary" [disabled]="addForm?.invalid">
+      Submit
+    </button>
+  </form>
+</div>
+
+<br />
+<div class="container">
+  <form [formGroup]="editForm" (submit)="onFormSubmit1()">
+    <div class="form-group">
+      <label>Edit Category Name*</label>
+      <input
+        placeholder="Category Name"
+        class="form-control"
+        type="text"
+        formControlName="editCategoryName"
+      />
+    </div>
+    <div class="form-group">
+      <label>Movie category</label>
+      <select formControlName="CategoryID" class="form-control">
+        <option *ngFor="let cat of categories" [ngValue]="cat.id">{{
+          cat.name
+        }}</option>
+      </select>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="editForm?.invalid"
+    >
       Submit
     </button>
   </form>
