@@ -13,6 +13,7 @@ export class ShowService {
   private readonly endpiont2 = 'http://localhost:8080/save-show';
   private readonly endpiont3 = 'http://localhost:8080/get-show';
   private readonly endpiont4 = 'http://localhost:8080/edit-show';
+  private readonly endpiont5 = 'http://localhost:8080/delete-show';
   constructor(private readonly http: HttpClient) {}
 
   public getOneShow(id: number): Observable<Show> {
@@ -26,5 +27,8 @@ export class ShowService {
   }
   public editShow(show: Show): Observable<void> {
     return this.http.post<void>(this.endpiont4, show);
+  }
+  public deleteShow(show: Show): Observable<void> {
+    return this.http.post<void>(this.endpiont5, show);
   }
 }

@@ -13,6 +13,7 @@ import { FilmViewComponent } from './film-view/film-view.component';
 import { FilmFormComponent } from './film-form/film-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CategoryFormComponent } from './category-form/category-form.component';
+import { FavoriteFilmsComponent } from './favorite-films/favorite-films.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CategoryFormComponent } from './category-form/category-form.component';
     CategoryComponent,
     FilmViewComponent,
     FilmFormComponent,
-    CategoryFormComponent
+    CategoryFormComponent,
+    FavoriteFilmsComponent
   ],
   imports: [
     BrowserModule,

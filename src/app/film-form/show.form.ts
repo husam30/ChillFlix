@@ -33,7 +33,8 @@ export class ShowForm extends FormGroup {
       url: this.controls.url.value,
       director: this.controls.director.value,
       description: this.controls.description.value,
-      movieCategory: this.controls.movieCategory.value
+      movieCategory: this.controls.movieCategory.value,
+      favoriteStatus: false
     };
   }
 }

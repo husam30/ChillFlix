@@ -135,3 +135,25 @@
     </button>
   </form>
 </div>
+<hr />
+<h2>Delete movie</h2>
+<div class="container">
+  <form [formGroup]="newForm2" (submit)="onFormSubmit2()">
+    <div class="form-group">
+      <label>Select movie</label>
+      <select formControlName="movieId" class="form-control">
+        <option *ngFor="let show of shows" [ngValue]="show.id">{{
+          show.title + '/ ' + show.movieCategory
+        }}</option>
+      </select>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="newForm2?.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

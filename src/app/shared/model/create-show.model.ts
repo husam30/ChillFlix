@@ -5,4 +5,5 @@ export class CreateShow {
   public director: string;
   public description: string;
   public movieCategory: string;
+  public favoriteStatus: boolean;
 }
