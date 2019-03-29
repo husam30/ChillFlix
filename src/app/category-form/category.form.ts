@@ -1,8 +1,7 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Category } from '../shared/model/category.model';
 import { CategoryCreat } from '../shared/model/create-category-model';
 
-export class categoryForm extends FormGroup {
+export class CategoryForm extends FormGroup {
   constructor() {
     super({
       CategoryName: new FormControl('', [
