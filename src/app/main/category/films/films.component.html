@@ -9,3 +9,18 @@
   />
 </div>
 <br />
+<button
+  class="btn-success"
+  *ngIf="!show.favoriteStatus"
+  (click)="changeStatusOn(show)"
+>
+  Add to favorite
+</button>
+<button
+  class="btn-success"
+  *ngIf="show.favoriteStatus"
+  (click)="changeStatusOf(show)"
+>
+  Remove from favorite
+</button>
+<br />
