@@ -13,6 +13,9 @@ export class ShowForm2 extends FormGroup {
   /** Gets the model of this form */
   public getModel(): Show {
     return {
+      favoriteCounter: 0,
+      counter: 0,
+      time: new Date(),
       id: this.controls.movieId.value,
       title: 'samer',
       releaseDate: 1,

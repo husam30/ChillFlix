@@ -9,11 +9,12 @@ import { MainComponent } from './main/main.component';
 import { CategoryComponent } from './main/category/category.component';
 import { FilmsComponent } from './main/category/films/films.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FilmViewComponent } from './film-view/film-view.component';
+
 import { FilmFormComponent } from './film-form/film-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CategoryFormComponent } from './category-form/category-form.component';
 import { FavoriteFilmsComponent } from './favorite-films/favorite-films.component';
+import { FilmViewComponent } from './main/film-view/film-view.component';
 
 @NgModule({
   declarations: [

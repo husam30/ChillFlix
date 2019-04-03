@@ -1,5 +1,10 @@
-<br />
 <div class="col">
+  <a [routerLink]="['/']" class="btn btn-primary" role="button"
+    >Go back to main page</a
+  >
+  <br />
+  <br />
+
   <h3>{{ show?.title }}</h3>
   <br />
   <iframe
@@ -11,10 +16,27 @@
     allowfullscreen
   ></iframe>
   <br />
+  <button
+    class="btn-success"
+    *ngIf="!show?.favoriteStatus"
+    (click)="changeStatusOn(show)"
+  >
+    Add to favorite
+  </button>
+  <button
+    class="btn-success"
+    *ngIf="show?.favoriteStatus"
+    (click)="changeStatusOf(show)"
+  >
+    Remove from favorite
+  </button>
+  <br />
   <br />
   <h6>Director: {{ show?.director }}</h6>
   <h6>Relase date : {{ show?.releaseDate }}</h6>
   <h6>Category: {{ show?.movieCategory }}</h6>
   <h6>Description: {{ show?.description }}</h6>
+
+  <br />
 </div>
 <br />

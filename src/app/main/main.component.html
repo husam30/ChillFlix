@@ -1,3 +1,43 @@
-<br />
-<app-category *ngFor="let item of categories" [category]="item"></app-category>
-<br />
+<div class="col">
+  <a [routerLink]="['/favoritefilms']" class="btn btn-primary" role="button"
+    >go to favorite films page
+  </a>
+
+  <a
+    [routerLink]="['/addShow']"
+    class="btn btn-primary"
+    role="button"
+    style="margin-left:10px;"
+  >
+    go to Movie edit page
+  </a>
+
+  <a
+    [routerLink]="['/addCategory']"
+    class="btn btn-primary"
+    role="button"
+    style="margin-left:10px;"
+    >go to Category edit page
+  </a>
+  <br />
+  <br />
+  <a
+    *ngFor="let item of categories"
+    style="margin-left:10px;"
+    href="#{{ item.name }}"
+    >{{ item.name }}</a
+  >
+
+  <br />
+  <app-category [category]="recentlyCategory"></app-category>
+  <app-category [category]="mostCategory"></app-category>
+  <app-category [category]="likedCategory"></app-category>
+  <app-category
+    *ngFor="let item of categories"
+    [category]="item"
+    id="{{ item.name }}"
+  ></app-category>
+  <br />
+
+  <!-- <p>  (categoryEmitter)="loadCategories($event)"</p> -->
+</div>
