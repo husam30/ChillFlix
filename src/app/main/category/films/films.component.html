@@ -1,5 +1,4 @@
 <br />
-
 <div class="col">
   <h6>{{ show.title }}</h6>
   <span
@@ -14,18 +13,16 @@
     width="200"
     height="150"
   />
-</div>
-<br />
 
-<br />
-<div *ngIf="router.url === '/favoritefilms'">
-  <br />
-  <button
-    class="btn-success"
-    *ngIf="show.favoriteStatus"
-    (click)="changeStatusOf(show)"
-  >
-    Remove from favorite
-  </button>
-  <br />
+  <div *ngIf="router.url === '/favoritefilms'">
+    <br />
+    <button
+      class="btn-success"
+      *ngIf="show.favoriteStatus"
+      (click)="changeStatusOf(show)"
+    >
+      Remove from favorite
+    </button>
+    <br />
+  </div>
 </div>

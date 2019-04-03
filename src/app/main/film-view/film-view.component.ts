@@ -10,6 +10,7 @@ import { ShowService } from 'src/app/shared/services/show.service';
   styleUrls: ['./film-view.component.css']
 })
 export class FilmViewComponent implements OnInit {
+  public show1: boolean = false;
   public show: Show;
   public filmWidth = 240;
   public filmHeight = 200;
@@ -45,5 +46,8 @@ export class FilmViewComponent implements OnInit {
     this.showservice.editShow(show).subscribe(() => {});
 
     return show.favoriteStatus;
+  }
+  public changeStatusOfPage() {
+    this.show1 = !this.show1;
   }
 }
