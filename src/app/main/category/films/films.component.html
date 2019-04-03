@@ -1,26 +1,31 @@
 <br />
-<div class="col" (click)="onSlect(show)">
-  <h4>{{ show.title }}</h4>
 
+<div class="col">
+  <h6>{{ show.title }}</h6>
+  <span
+    *ngIf="show.favoriteStatus && this.router.url !== '/favoritefilms'"
+    style="color:gold;"
+    >&#9733;</span
+  >
+  <br />
   <img
+    (click)="onSlect(show); timeCounterFunction(show)"
     src="http://img.youtube.com/vi/{{ show.url }}/0.jpg"
-    width="240"
-    height="200"
+    width="200"
+    height="150"
   />
 </div>
 <br />
-<button
-  class="btn-success"
-  *ngIf="!show.favoriteStatus"
-  (click)="changeStatusOn(show)"
->
-  Add to favorite
-</button>
-<button
-  class="btn-success"
-  *ngIf="show.favoriteStatus"
-  (click)="changeStatusOf(show)"
->
-  Remove from favorite
-</button>
+
 <br />
+<div *ngIf="router.url === '/favoritefilms'">
+  <br />
+  <button
+    class="btn-success"
+    *ngIf="show.favoriteStatus"
+    (click)="changeStatusOf(show)"
+  >
+    Remove from favorite
+  </button>
+  <br />
+</div>

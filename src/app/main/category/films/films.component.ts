@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Show } from 'src/app/shared/model/show.model';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { Router } from '@angular/router';
 import { ShowService } from 'src/app/shared/services/show.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-films',
@@ -16,19 +17,22 @@ export class FilmsComponent implements OnInit {
 
   public filmWidth = 240;
   public filmHeight = 160;
+  @Output()
+  public filmEvent = new EventEmitter();
 
-  constructor(private router: Router, private showService: ShowService) {}
-  public changeStatusOn(show: Show) {
-    show.favoriteStatus = true;
-    this.showService.editShow(show).subscribe(() => {});
+  constructor(public router: Router, private showService: ShowService) {}
 
-    return show.favoriteStatus;
-  }
   public changeStatusOf(show: Show) {
     show.favoriteStatus = false;
-    this.showService.editShow(show).subscribe(() => {});
 
+    this.filmEvent.emit(show);
     return show.favoriteStatus;
+  }
+  public timeCounterFunction(show) {
+    show.time = new Date();
+
+    show.counter = show.counter + 1;
+    this.showService.editShow(show).subscribe(() => {});
   }
   ngOnInit() {}
   onSlect(show) {

@@ -13,6 +13,7 @@ export class CategoryService {
   private readonly endpiont = 'http://localhost:8080/get-category';
   private readonly endpiont1 = 'http://localhost:8080/save-category';
   private readonly endpiont2 = 'http://localhost:8080/edit-category';
+  private readonly endpiont3 = 'http://localhost:8080/delete-category';
 
   constructor(private readonly http: HttpClient) {}
 
@@ -21,6 +22,9 @@ export class CategoryService {
   }
   public saveCategory(category: CategoryCreat): Observable<void> {
     return this.http.post<void>(this.endpiont1, category);
+  }
+  public deleteCat(category: CategoryEdit): Observable<void> {
+    return this.http.post<void>(this.endpiont3, category);
   }
 
   public editCategory(category: CategoryEdit): Observable<void> {

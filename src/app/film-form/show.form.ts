@@ -12,10 +12,7 @@ export class ShowForm extends FormGroup {
         Validators.required,
         Validators.maxLength(100)
       ]),
-      description: new FormControl('', [
-        Validators.required,
-        Validators.maxLength(100)
-      ]),
+      description: new FormControl('', [Validators.required]),
       movieCategory: new FormControl('', [
         Validators.required,
         Validators.maxLength(100)

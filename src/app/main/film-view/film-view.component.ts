@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { Show } from '../shared/model/show.model';
-import { CategoryService } from '../shared/services/category.service';
-import { Category } from '../shared/model/category.model';
-import { ShowService } from '../shared/services/show.service';
+import { Show } from 'src/app/shared/model/show.model';
+import { ShowService } from 'src/app/shared/services/show.service';
 
 @Component({
   selector: 'app-film-view',
@@ -13,8 +11,8 @@ import { ShowService } from '../shared/services/show.service';
 })
 export class FilmViewComponent implements OnInit {
   public show: Show;
-  public filmWidth = 200;
-  public filmHeight = 140;
+  public filmWidth = 240;
+  public filmHeight = 200;
   constructor(
     private route: ActivatedRoute,
     private readonly sanitizer: DomSanitizer,
@@ -34,5 +32,18 @@ export class FilmViewComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
       'https://www.youtube.com/embed/' + url
     );
+  }
+  public changeStatusOn(show: Show) {
+    show.favoriteStatus = true;
+    show.favoriteCounter = show.favoriteCounter + 1;
+    this.showservice.editShow(show).subscribe(() => {});
+
+    return show.favoriteStatus;
+  }
+  public changeStatusOf(show: Show) {
+    show.favoriteStatus = false;
+    this.showservice.editShow(show).subscribe(() => {});
+
+    return show.favoriteStatus;
   }
 }

@@ -1,49 +1,143 @@
-<br />
+<div class="col">
+  <a [routerLink]="['/']" class="btn btn-primary" role="button"
+    >Go back to main page</a
+  >
+  <br />
+  <br />
+  <hr />
+  <button
+    *ngIf="!this.addCategory"
+    type="button"
+    class="btn-success btn-sm"
+    (click)="this.catShowCat()"
+  >
+    Show Category adding section
+  </button>
+  <button
+    *ngIf="this.addCategory"
+    type="button"
+    class="btn-success btn-sm"
+    (click)="this.catShowCat()"
+  >
+    Hide Category adding section
+  </button>
+  <br />
+  <br />
+  <div class="col" *ngIf="this.addCategory">
+    <h2>Add Category</h2>
+    <div class="container">
+      <form [formGroup]="addForm" (submit)="onFormSubmit()">
+        <div class="form-group">
+          <label>Category Name*</label>
+          <input
+            placeholder="Category Name"
+            class="form-control"
+            type="text"
+            formControlName="CategoryName"
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="addForm?.invalid"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+  <hr />
 
-<br />
-<div class="container">
-  <form [formGroup]="addForm" (submit)="onFormSubmit()">
-    <div class="form-group">
-      <label>Category Name*</label>
-      <input
-        placeholder="Category Name"
-        class="form-control"
-        type="text"
-        formControlName="CategoryName"
-      />
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="addForm?.invalid">
-      Submit
-    </button>
-  </form>
-</div>
+  <button
+    *ngIf="!this.editCategory"
+    type="button"
+    class="btn-success btn-sm"
+    (click)="this.cateditCat()"
+  >
+    Show Category editing section
+  </button>
+  <button
+    *ngIf="this.editCategory"
+    type="button"
+    class="btn-success btn-sm"
+    (click)="this.cateditCat()"
+  >
+    Hide Category editing section
+  </button>
+  <br />
+  <br />
+  <div class="col" *ngIf="this.editCategory">
+    <h2>Edit Category</h2>
+    <div class="container">
+      <form [formGroup]="editForm" (submit)="onFormSubmit1()">
+        <div class="form-group">
+          <label>New Category Name*</label>
+          <input
+            placeholder="Category Name"
+            class="form-control"
+            type="text"
+            formControlName="editCategoryName"
+          />
+        </div>
 
-<br />
-<div class="container">
-  <form [formGroup]="editForm" (submit)="onFormSubmit1()">
-    <div class="form-group">
-      <label>Edit Category Name*</label>
-      <input
-        placeholder="Category Name"
-        class="form-control"
-        type="text"
-        formControlName="editCategoryName"
-      />
+        <div class="form-group">
+          <label>Old category name*</label>
+          <select formControlName="CategoryID" class="form-control">
+            <option *ngFor="let cat of categories" [ngValue]="cat.id">{{
+              cat.name
+            }}</option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="editForm?.invalid"
+        >
+          Submit
+        </button>
+      </form>
     </div>
-    <div class="form-group">
-      <label>Movie category</label>
-      <select formControlName="CategoryID" class="form-control">
-        <option *ngFor="let cat of categories" [ngValue]="cat.id">{{
-          cat.name
-        }}</option>
-      </select>
+  </div>
+  <hr />
+
+  <button
+    *ngIf="!this.deleteCategory"
+    type="button"
+    class="btn-success btn-sm"
+    (click)="this.catDeleteCat()"
+  >
+    Show Category deleting section
+  </button>
+  <button
+    *ngIf="this.deleteCategory"
+    type="button"
+    class="btn-success btn-sm"
+    (click)="this.catDeleteCat()"
+  >
+    Hide Category deleting section
+  </button>
+  <br />
+  <br />
+  <div class="col" *ngIf="this.deleteCategory">
+    <h2>Delete Category</h2>
+    <div class="container">
+      <form [formGroup]="deleteForm" (submit)="onFormSubmit2()">
+        <div class="form-group">
+          <label>Category name*</label>
+          <select formControlName="CategoryID" class="form-control">
+            <option *ngFor="let cat of categories" [ngValue]="cat.id">{{
+              cat.name
+            }}</option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="deleteForm?.invalid"
+        >
+          Submit
+        </button>
+      </form>
     </div>
-    <button
-      type="submit"
-      class="btn btn-primary"
-      [disabled]="editForm?.invalid"
-    >
-      Submit
-    </button>
-  </form>
+  </div>
 </div>

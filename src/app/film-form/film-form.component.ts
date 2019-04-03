@@ -13,6 +13,11 @@ import { ShowForm2 } from './deleteshwos.form';
   templateUrl: './film-form.component.html'
 })
 export class FilmFormComponent implements OnInit {
+  public addShow: boolean = false;
+  public editShow: boolean = false;
+  public deleteShow: boolean = false;
+  public mostShow: boolean = false;
+  public favShow: boolean = false;
   public categories: Category[];
   public shows: Show[];
   public newForm: ShowForm = new ShowForm();
@@ -25,20 +30,41 @@ export class FilmFormComponent implements OnInit {
   ) {}
   public onFormSubmit() {
     const show1: CreateShow = this.newForm.getModel();
-    this.showService.saveShow(show1).subscribe(() => {});
+    this.showService.saveShow(show1).subscribe(() => {
+      this.showService.getAllShows().subscribe(shows => (this.shows = shows));
+    });
   }
   public onFormSubmit1() {
     const show1: Show = this.newForm1.getModel();
-    this.showService.editShow(show1).subscribe(() => {});
+    this.showService.editShow(show1).subscribe(() => {
+      this.showService.getAllShows().subscribe(shows => (this.shows = shows));
+    });
   }
   public onFormSubmit2() {
     const show1: Show = this.newForm2.getModel();
-    this.showService.deleteShow(show1).subscribe(() => {});
+    this.showService.deleteShow(show1).subscribe(() => {
+      this.showService.getAllShows().subscribe(shows => (this.shows = shows));
+    });
   }
   ngOnInit() {
     this.categoryservice
       .getAllcategories()
       .subscribe(categories => (this.categories = categories));
     this.showService.getAllShows().subscribe(shows => (this.shows = shows));
+  }
+  public showAddShow() {
+    this.addShow = !this.addShow;
+  }
+  public showEditShow() {
+    this.editShow = !this.editShow;
+  }
+  public showDeleteShow() {
+    this.deleteShow = !this.deleteShow;
+  }
+  public showMostShow() {
+    this.mostShow = !this.mostShow;
+  }
+  public showFavShow() {
+    this.favShow = !this.favShow;
   }
 }
