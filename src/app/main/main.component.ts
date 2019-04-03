@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { Category } from '../shared/model/category.model';
 import { CategoryService } from '../shared/services/category.service';
 import { ShowService } from '../shared/services/show.service';
 import { Show } from '../shared/model/show.model';
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -15,6 +14,7 @@ export class MainComponent implements OnInit {
     private showServive: ShowService
   ) {}
   public categories: Category[] = [];
+  public showDropdown = false;
   public recentlyCategory: Category = new Category();
   public mostCategory: Category = new Category();
   public likedCategory: Category = new Category();
@@ -69,5 +69,9 @@ export class MainComponent implements OnInit {
         });
       });
     });
+  }
+
+  public toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
   }
 }
