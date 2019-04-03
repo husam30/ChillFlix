@@ -1,33 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['/']">Home</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/favoritefilms']"
+          >Favorite Films <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/addShow']">Edit Movie</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/addCategory']">Edit Category</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="javascript:void(0)"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          (click)="toggleDropdown()"
+        >
+          Categories
+        </a>
+        <div
+          class="dropdown-menu"
+          [ngClass]="{ show: showDropdown }"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
+          <a
+            *ngFor="let item of categories"
+            class="dropdown-item"
+            href="#{{ item.name }}"
+            >{{ item.name }}</a
+          >
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <div class="col">
-  <a [routerLink]="['/favoritefilms']" class="btn btn-primary" role="button"
-    >go to favorite films page
-  </a>
-
-  <a
-    [routerLink]="['/addShow']"
-    class="btn btn-primary"
-    role="button"
-    style="margin-left:10px;"
-  >
-    go to Movie edit page
-  </a>
-
-  <a
-    [routerLink]="['/addCategory']"
-    class="btn btn-primary"
-    role="button"
-    style="margin-left:10px;"
-    >go to Category edit page
-  </a>
-  <br />
-  <br />
-  <a
-    *ngFor="let item of categories"
-    style="margin-left:10px;"
-    href="#{{ item.name }}"
-    >{{ item.name }}</a
-  >
-
   <br />
   <app-category [category]="recentlyCategory"></app-category>
   <app-category [category]="mostCategory"></app-category>
