@@ -1,7 +1,11 @@
 <div class="col" *ngIf="!show1">
-  <a [routerLink]="['/']" class="btn btn-primary" role="button"
-    >Go back to main page</a
+  <button
+    type="button"
+    class="p-3 mb-2 bg-dark text-white"
+    [routerLink]="['/']"
   >
+    <i class="glyphicon glyphicon-chevron-left"></i>Home
+  </button>
 
   <br />
   <br />
@@ -28,18 +32,18 @@
     <br />
     <br />
     <button
-      class="btn-success"
+      class="p-3 mb-2 bg-success text-white"
       *ngIf="!show?.favoriteStatus"
       (click)="changeStatusOn(show)"
     >
-      Add to favorite
+      <i class="glyphicon glyphicon-star">Add</i>
     </button>
     <button
-      class="btn-success"
+      class="p-3 mb-2 bg-danger text-white"
       *ngIf="show?.favoriteStatus"
       (click)="changeStatusOf(show)"
     >
-      Remove from favorite
+      <i class="glyphicon glyphicon-star-empty">Remove</i>
     </button>
     <br />
     <br />

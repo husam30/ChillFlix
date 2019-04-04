@@ -1,90 +1,109 @@
-<div class="col">
-  <a [routerLink]="['/']" class="btn btn-primary" role="button"
-    >Go back to main page</a
-  >
-  <br />
-  <br />
-  <hr />
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand text-danger" [routerLink]="['/']">ChillFlix</a>
   <button
-    *ngIf="!this.addShow"
+    class="navbar-toggler"
     type="button"
-    class="btn-success btn-sm"
-    (click)="this.showAddShow()"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
   >
-    Show movie adding section
+    <span class="navbar-toggler-icon"></span>
   </button>
-  <button
-    *ngIf="this.addShow"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.showAddShow()"
-  >
-    Hide movie adding section
-  </button>
-  <br />
-  <br />
-  <div class="col" *ngIf="this.addShow">
-    <h2>Add movie</h2>
-    <div class="container">
-      <form [formGroup]="newForm" (submit)="onFormSubmit()">
-        <div class="form-group">
-          <label>Title*</label>
-          <input
-            placeholder="title"
-            class="form-control"
-            type="text"
-            formControlName="title"
-          />
-        </div>
-        <div class="form-group">
-          <label>ReleaseDate*</label>
-          <input
-            placeholder="releaseDate"
-            class="form-control"
-            type="text"
-            formControlName="releaseDate"
-          />
-        </div>
-        <div class="form-group">
-          <label>Url*</label>
-          <input
-            placeholder="url"
-            class="form-control"
-            type="text"
-            formControlName="url"
-          />
-        </div>
-        <div class="form-group">
-          <label>Director*</label>
-          <input
-            placeholder="director"
-            class="form-control"
-            type="text"
-            formControlName="director"
-          />
-        </div>
-        <div class="form-group">
-          <label>Description*</label>
-          <input
-            placeholder="description"
-            class="form-control"
-            type="text"
-            formControlName="description"
-          />
-        </div>
-        <div class="form-group">
-          <label>Movie category*</label>
-          <select formControlName="movieCategory" class="form-control">
-            <option *ngFor="let cat of categories" [ngValue]="cat.name">{{
-              cat.name
-            }}</option>
-          </select>
-        </div>
-        <button
-          type="submit"
-          class="btn btn-primary"
-          [disabled]="newForm?.invalid"
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link text-info" (click)="this.showAddShow()"
+          >Add Movie <span class="sr-only">(current)</span></a
         >
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link text-info" (click)="this.showEditShow()"
+          >Edit Movie</a
+        >
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link text-info" (click)="this.showDeleteShow()"
+          >Delete Movie</a
+        >
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link text-info" (click)="this.showMostShow()"
+          >Views Number</a
+        >
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link text-info" (click)="this.showFavShow()">Favorite</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+
+<div class="col" *ngIf="this.addShow">
+  <h2>Add movie</h2>
+  <div class="container">
+    <form [formGroup]="newForm" (submit)="onFormSubmit()">
+      <div class="form-group">
+        <label>Title*</label>
+        <input
+          placeholder="title"
+          class="form-control"
+          type="text"
+          formControlName="title"
+        />
+      </div>
+      <div class="form-group">
+        <label>ReleaseDate*</label>
+        <input
+          placeholder="releaseDate"
+          class="form-control"
+          type="text"
+          formControlName="releaseDate"
+        />
+      </div>
+      <div class="form-group">
+        <label>Url*</label>
+        <input
+          placeholder="url"
+          class="form-control"
+          type="text"
+          formControlName="url"
+        />
+      </div>
+      <div class="form-group">
+        <label>Director*</label>
+        <input
+          placeholder="director"
+          class="form-control"
+          type="text"
+          formControlName="director"
+        />
+      </div>
+      <div class="form-group">
+        <label>Description*</label>
+        <input
+          placeholder="description"
+          class="form-control"
+          type="text"
+          formControlName="description"
+        />
+      </div>
+      <div class="form-group">
+        <label>Movie category*</label>
+        <select formControlName="movieCategory" class="form-control">
+          <option *ngFor="let cat of categories" [ngValue]="cat.name">{{
+            cat.name
+          }}</option>
+        </select>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="newForm?.invalid"
+      >
           Submit
         </button>
         <br />
@@ -102,148 +121,99 @@
         </div>
       </form>
     </div>
+
   </div>
-  <hr />
+</div>
 
-  <button
-    *ngIf="!this.editShow"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.showEditShow()"
-  >
-    Show movie editing section
-  </button>
-  <button
-    *ngIf="this.editShow"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.showEditShow()"
-  >
-    Hide movie editing section
-  </button>
-  <br />
-  <br />
-  <div class="col" *ngIf="this.editShow">
-    <h2>Edit movie</h2>
-    <div class="container">
-      <form [formGroup]="newForm1" (submit)="onFormSubmit1()">
-        <div class="form-group">
-          <label>Select movie*</label>
-          <select formControlName="movieId" class="form-control">
-            <option *ngFor="let show of shows" [ngValue]="show.id">{{
-              show.title + '/ ' + show.movieCategory
-            }}</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Title</label>
-          <input
-            placeholder="title"
-            class="form-control"
-            type="text"
-            formControlName="title"
-          />
-        </div>
-        <div class="form-group">
-          <label>ReleaseDate</label>
-          <input
-            placeholder="releaseDate"
-            class="form-control"
-            type="text"
-            formControlName="releaseDate"
-          />
-        </div>
-        <div class="form-group">
-          <label>Url</label>
-          <input
-            placeholder="url"
-            class="form-control"
-            type="text"
-            formControlName="url"
-          />
-        </div>
-        <div class="form-group">
-          <label>Director</label>
-          <input
-            placeholder="director"
-            class="form-control"
-            type="text"
-            formControlName="director"
-          />
-        </div>
-        <div class="form-group">
-          <label>Description</label>
-          <input
-            placeholder="description"
-            class="form-control"
-            type="text"
-            formControlName="description"
-          />
-        </div>
-        <div class="form-group">
-          <label>Movie category*</label>
-          <select formControlName="movieCategory" class="form-control">
-            <option *ngFor="let cat of categories" [ngValue]="cat.name">{{
-              cat.name
-            }}</option>
-          </select>
-        </div>
-        <button
-          type="submit"
-          class="btn btn-primary"
-          [disabled]="newForm1?.invalid"
-        >
-          Submit
-        </button>
-        <br />
-        <br />
-        <div class="row" *ngIf="showMs1" style="text-align: center">
-          <div class="col-xs-12" style="display: inline-block">
-            <p class="alert alert-success">
-              <strong>Your modification has been applied successfully!</strong>
-            </p>
-
-            <button class="btn btn-primary btn-sm" (click)="showMessage1()">
-              close
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
+<div class="col" *ngIf="this.editShow">
+  <h2>Edit movie</h2>
+  <div class="container">
+    <form [formGroup]="newForm1" (submit)="onFormSubmit1()">
+      <div class="form-group">
+        <label>Select movie*</label>
+        <select formControlName="movieId" class="form-control">
+          <option *ngFor="let show of shows" [ngValue]="show.id">{{
+            show.title + '/ ' + show.movieCategory
+          }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Title</label>
+        <input
+          placeholder="title"
+          class="form-control"
+          type="text"
+          formControlName="title"
+        />
+      </div>
+      <div class="form-group">
+        <label>ReleaseDate</label>
+        <input
+          placeholder="releaseDate"
+          class="form-control"
+          type="text"
+          formControlName="releaseDate"
+        />
+      </div>
+      <div class="form-group">
+        <label>Url</label>
+        <input
+          placeholder="url"
+          class="form-control"
+          type="text"
+          formControlName="url"
+        />
+      </div>
+      <div class="form-group">
+        <label>Director</label>
+        <input
+          placeholder="director"
+          class="form-control"
+          type="text"
+          formControlName="director"
+        />
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input
+          placeholder="description"
+          class="form-control"
+          type="text"
+          formControlName="description"
+        />
+      </div>
+      <div class="form-group">
+        <label>Movie category*</label>
+        <select formControlName="movieCategory" class="form-control">
+          <option *ngFor="let cat of categories" [ngValue]="cat.name">{{
+            cat.name
+          }}</option>
+        </select>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="newForm1?.invalid"
+      >
+        Submit
+      </button>
+    </form>
   </div>
-  <hr />
-  <button
-    *ngIf="!this.deleteShow"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.showDeleteShow()"
-  >
-    Show movie deleting section
-  </button>
+</div>
 
-  <button
-    *ngIf="this.deleteShow"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.showDeleteShow()"
-  >
-    Hide movie deleting section
-  </button>
-  <br />
-  <br />
-  <div class="col" *ngIf="this.deleteShow">
-    <h2>Delete movie</h2>
-    <div class="container">
-      <form [formGroup]="newForm2" (submit)="onFormSubmit2()">
-        <div class="form-group">
-          <label>Select movie*</label>
-          <select formControlName="movieId" class="form-control">
-            <option *ngFor="let show of shows" [ngValue]="show.id">{{
-              show.title + '/ ' + show.movieCategory
-            }}</option>
-          </select>
-        </div>
 
+<div class="col" *ngIf="this.deleteShow">
+  <h2>Delete movie</h2>
+  <div class="container">
+    <form [formGroup]="newForm2" (submit)="onFormSubmit2()">
+      <div class="form-group">
+        <label>Select movie*</label>
+        <select formControlName="movieId" class="form-control">
+          <option *ngFor="let show of shows" [ngValue]="show.id">{{
+            show.title + '/ ' + show.movieCategory
+          }}</option>
+        </select>
+      </div>
         <button
           type="submit"
           class="btn btn-primary"
@@ -267,58 +237,21 @@
       </form>
     </div>
   </div>
-  <hr />
-  <button
-    *ngIf="!this.mostShow"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.showMostShow()"
-  >
-    Show views numbers
-  </button>
-  <button
-    *ngIf="this.mostShow"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.showMostShow()"
-  >
-    Hide views numbers
-  </button>
-  <br />
-  <br />
-  <div *ngIf="this.mostShow">
-    <div class="container" *ngFor="let show of shows">
-      <p>
-        Vidoe name: "{{ show.title }}" has been viewed for
-        {{ show.counter }} time
-      </p>
-    </div>
+</div>
+
+<div *ngIf="this.mostShow">
+  <div class="container" *ngFor="let show of shows">
+    <p>
+      Vidoe name: "{{ show.title }}" has been viewed for {{ show.counter }} time
+    </p>
   </div>
-  <hr />
-  <button
-    *ngIf="!this.favShow"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.showFavShow()"
-  >
-    Show favorite selected numbers
-  </button>
-  <button
-    *ngIf="this.favShow"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.showFavShow()"
-  >
-    Hide favorite selected numbers
-  </button>
-  <br />
-  <br />
-  <div *ngIf="this.favShow">
-    <div class="container" *ngFor="let show of shows">
-      <p>
-        Vidoe name: "{{ show.title }}" has been selected as favorite for
-        {{ show.favoriteCounter }} time
-      </p>
-    </div>
+</div>
+
+<div *ngIf="this.favShow">
+  <div class="container" *ngFor="let show of shows">
+    <p>
+      Vidoe name: "{{ show.title }}" has been selected as favorite for
+      {{ show.favoriteCounter }} time
+    </p>
   </div>
 </div>

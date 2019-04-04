@@ -1,46 +1,57 @@
-<div class="col">
-  <a [routerLink]="['/']" class="btn btn-primary" role="button"
-    >Go back to main page</a
-  >
-  <br />
-  <br />
-  <hr />
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand text-danger" [routerLink]="['/']">ChillFlix</a>
   <button
-    *ngIf="!this.addCategory"
+    class="navbar-toggler"
     type="button"
-    class="btn-success btn-sm"
-    (click)="this.catShowCat()"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
   >
-    Show Category adding section
+    <span class="navbar-toggler-icon"></span>
   </button>
-  <button
-    *ngIf="this.addCategory"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.catShowCat()"
-  >
-    Hide Category adding section
-  </button>
-  <br />
-  <br />
-  <div class="col" *ngIf="this.addCategory">
-    <h2>Add Category</h2>
-    <div class="container">
-      <form [formGroup]="addForm" (submit)="onFormSubmit()">
-        <div class="form-group">
-          <label>Category Name*</label>
-          <input
-            placeholder="Category Name"
-            class="form-control"
-            type="text"
-            formControlName="CategoryName"
-          />
-        </div>
-        <button
-          type="submit"
-          class="btn btn-primary"
-          [disabled]="addForm?.invalid"
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link text-info" (click)="this.catShowCat()"
+          >Add Category <span class="sr-only">(current)</span></a
         >
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link text-info" (click)="this.cateditCat()"
+          >Edit Category</a
+        >
+
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link text-info" (click)="this.catDeleteCat()"
+          >Delete Category</a
+        >
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+<div class="col" *ngIf="this.addCategory">
+  <h2>Add Category</h2>
+  <div class="container">
+    <form [formGroup]="addForm" (submit)="onFormSubmit()">
+      <div class="form-group">
+        <label>Category Name*</label>
+        <input
+          placeholder="Category Name"
+          class="form-control"
+          type="text"
+          formControlName="CategoryName"
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="addForm?.invalid"
+      >
           Submit
         </button>
         <br />
@@ -58,41 +69,21 @@
         </div>
       </form>
     </div>
-  </div>
-  <hr />
 
-  <button
-    *ngIf="!this.editCategory"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.cateditCat()"
-  >
-    Show Category editing section
-  </button>
-  <button
-    *ngIf="this.editCategory"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.cateditCat()"
-  >
-    Hide Category editing section
-  </button>
-  <br />
-  <br />
-  <div class="col" *ngIf="this.editCategory">
-    <h2>Edit Category</h2>
-    <div class="container">
-      <form [formGroup]="editForm" (submit)="onFormSubmit1()">
-        <div class="form-group">
-          <label>New Category Name*</label>
-          <input
-            placeholder="Category Name"
-            class="form-control"
-            type="text"
-            formControlName="editCategoryName"
-          />
-        </div>
 
+<div class="col" *ngIf="this.editCategory">
+  <h2>Edit Category</h2>
+  <div class="container">
+    <form [formGroup]="editForm" (submit)="onFormSubmit1()">
+      <div class="form-group">
+        <label>New Category Name*</label>
+        <input
+          placeholder="Category Name"
+          class="form-control"
+          type="text"
+          formControlName="editCategoryName"
+        />
+      </div>
         <div class="form-group">
           <label>Old category name*</label>
           <select formControlName="CategoryID" class="form-control">
@@ -123,27 +114,12 @@
         </div>
       </form>
     </div>
-  </div>
-  <hr />
 
-  <button
-    *ngIf="!this.deleteCategory"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.catDeleteCat()"
-  >
-    Show Category deleting section
-  </button>
-  <button
-    *ngIf="this.deleteCategory"
-    type="button"
-    class="btn-success btn-sm"
-    (click)="this.catDeleteCat()"
-  >
-    Hide Category deleting section
-  </button>
-  <br />
-  <br />
+  </div>
+</div>
+
+
+
   <div class="col" *ngIf="this.deleteCategory">
     <h2>Delete Category</h2>
     <div class="container">

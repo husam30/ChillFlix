@@ -17,11 +17,11 @@
   <div *ngIf="router.url === '/favoritefilms'">
     <br />
     <button
-      class="btn-success"
-      *ngIf="show.favoriteStatus"
+      class="p-3 mb-2 bg-danger text-white"
+      *ngIf="show?.favoriteStatus"
       (click)="changeStatusOf(show)"
     >
-      Remove from favorite
+      <i class="glyphicon glyphicon-star-empty">Remove</i>
     </button>
     <br />
   </div>
