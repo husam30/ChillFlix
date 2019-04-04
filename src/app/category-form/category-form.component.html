@@ -43,6 +43,19 @@
         >
           Submit
         </button>
+        <br />
+        <br />
+        <div class="row" *ngIf="showMs" style="text-align: center">
+          <div class="col-xs-12" style="display:inline-block ">
+            <p class="alert alert-success">
+              <strong>Your modification has been applied successfully!</strong>
+            </p>
+
+            <button class="btn btn-primary btn-sm" (click)="showMessage()">
+              close
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </div>
@@ -95,6 +108,19 @@
         >
           Submit
         </button>
+        <br />
+        <br />
+        <div class="row" *ngIf="showMs1" style="text-align: center">
+          <div class="col-xs-12" style="display:inline-block ">
+            <p class="alert alert-success">
+              <strong>Your modification has been applied successfully!</strong>
+            </p>
+
+            <button class="btn btn-primary btn-sm" (click)="showMessage1()">
+              close
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </div>
@@ -137,6 +163,19 @@
         >
           Submit
         </button>
+        <br />
+        <br />
+        <div class="row" *ngIf="showMs2" style="text-align: center">
+          <div class="col-xs-12" style="display:inline-block ">
+            <p class="alert alert-success">
+              <strong>Your modification has been applied successfully!</strong>
+            </p>
+
+            <button class="btn btn-primary btn-sm" (click)="showMessage2()">
+              close
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   </div>
