@@ -34,6 +34,12 @@ export class FilmViewComponent implements OnInit {
       'https://www.youtube.com/embed/' + url
     );
   }
+  public timeCounterFunction(show) {
+    show.time = new Date();
+
+    show.counter = show.counter + 1;
+    this.showservice.editShow(show).subscribe(() => {});
+  }
   public changeStatusOn(show: Show) {
     show.favoriteStatus = true;
     show.favoriteCounter = show.favoriteCounter + 1;

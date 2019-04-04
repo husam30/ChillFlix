@@ -16,6 +16,9 @@ export class CategoryFormComponent implements OnInit {
   public addCategory: boolean = false;
   public editCategory: boolean = false;
   public deleteCategory: boolean = false;
+  public showMs: boolean = false;
+  public showMs1: boolean = false;
+  public showMs2: boolean = false;
   public categories: Category[];
   public addForm: CategoryForm = new CategoryForm();
   public editForm: EditCategoryForm = new EditCategoryForm();
@@ -34,6 +37,8 @@ export class CategoryFormComponent implements OnInit {
         .getAllcategories()
         .subscribe(categories => (this.categories = categories));
     });
+    this.showMs = true;
+    this.addForm.reset();
   }
   // tslint:disable-next-line: use-life-cycle-interface
   public onFormSubmit1() {
@@ -43,6 +48,8 @@ export class CategoryFormComponent implements OnInit {
         .getAllcategories()
         .subscribe(categories => (this.categories = categories));
     });
+    this.showMs1 = true;
+    this.editForm.reset();
   }
   public onFormSubmit2() {
     const category1: CategoryEdit = this.deleteForm.getModel();
@@ -51,6 +58,8 @@ export class CategoryFormComponent implements OnInit {
         .getAllcategories()
         .subscribe(categories => (this.categories = categories));
     });
+    this.showMs2 = true;
+    this.deleteForm.reset();
   }
   public catShowCat() {
     this.addCategory = !this.addCategory;
@@ -60,5 +69,14 @@ export class CategoryFormComponent implements OnInit {
   }
   public catDeleteCat() {
     this.deleteCategory = !this.deleteCategory;
+  }
+  public showMessage() {
+    this.showMs = !this.showMs;
+  }
+  public showMessage1() {
+    this.showMs1 = !this.showMs1;
+  }
+  public showMessage2() {
+    this.showMs2 = !this.showMs2;
   }
 }

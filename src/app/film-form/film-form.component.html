@@ -37,8 +37,10 @@
         <a class="nav-link text-info" (click)="this.showFavShow()">Favorite</a>
       </li>
     </ul>
+
   </div>
 </nav>
+
 
 <div class="col" *ngIf="this.addShow">
   <h2>Add movie</h2>
@@ -102,9 +104,24 @@
         class="btn btn-primary"
         [disabled]="newForm?.invalid"
       >
-        Submit
-      </button>
-    </form>
+          Submit
+        </button>
+        <br />
+        <br />
+        <div class="row" *ngIf="showMs" style="text-align: center">
+          <div class="col-xs-12" style="display: inline-block">
+            <p class="alert alert-success">
+              <strong>Your modification has been applied successfully!</strong>
+            </p>
+
+            <button class="btn btn-primary btn-sm" (click)="showMessage()">
+              close
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
   </div>
 </div>
 
@@ -184,6 +201,7 @@
   </div>
 </div>
 
+
 <div class="col" *ngIf="this.deleteShow">
   <h2>Delete movie</h2>
   <div class="container">
@@ -196,15 +214,28 @@
           }}</option>
         </select>
       </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="newForm2?.invalid"
+        >
+          Submit
+        </button>
+        <br />
+        <br />
+        <div class="row" *ngIf="showMs2" style="text-align: center">
+          <div class="col-xs-12" style="display:inline-block ">
+            <p class="alert alert-success">
+              <strong>Your modification has been applied successfully!</strong>
+            </p>
 
-      <button
-        type="submit"
-        class="btn btn-primary"
-        [disabled]="newForm2?.invalid"
-      >
-        Submit
-      </button>
-    </form>
+            <button class="btn btn-primary btn-sm" (click)="showMessage2()">
+              close
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 
