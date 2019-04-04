@@ -23,7 +23,9 @@ export class FilmFormComponent implements OnInit {
   public newForm: ShowForm = new ShowForm();
   public newForm1: ShowForm1 = new ShowForm1();
   public newForm2: ShowForm2 = new ShowForm2();
-
+  public showMs: boolean = false;
+  public showMs1: boolean = false;
+  public showMs2: boolean = false;
   constructor(
     private showService: ShowService,
     private categoryservice: CategoryService
@@ -33,19 +35,26 @@ export class FilmFormComponent implements OnInit {
     this.showService.saveShow(show1).subscribe(() => {
       this.showService.getAllShows().subscribe(shows => (this.shows = shows));
     });
+    this.showMs = true;
+    this.newForm.reset();
   }
   public onFormSubmit1() {
     const show1: Show = this.newForm1.getModel();
     this.showService.editShow(show1).subscribe(() => {
       this.showService.getAllShows().subscribe(shows => (this.shows = shows));
     });
+    this.showMs1 = true;
+    this.newForm1.reset();
   }
   public onFormSubmit2() {
     const show1: Show = this.newForm2.getModel();
     this.showService.deleteShow(show1).subscribe(() => {
       this.showService.getAllShows().subscribe(shows => (this.shows = shows));
     });
+    this.showMs2 = true;
+    this.newForm2.reset();
   }
+
   ngOnInit() {
     this.categoryservice
       .getAllcategories()
@@ -66,5 +75,14 @@ export class FilmFormComponent implements OnInit {
   }
   public showFavShow() {
     this.favShow = !this.favShow;
+  }
+  public showMessage() {
+    this.showMs = !this.showMs;
+  }
+  public showMessage1() {
+    this.showMs1 = !this.showMs1;
+  }
+  public showMessage2() {
+    this.showMs2 = !this.showMs2;
   }
 }

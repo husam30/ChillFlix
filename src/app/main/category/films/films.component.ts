@@ -28,12 +28,6 @@ export class FilmsComponent implements OnInit {
     this.filmEvent.emit(show);
     return show.favoriteStatus;
   }
-  public timeCounterFunction(show) {
-    show.time = new Date();
-
-    show.counter = show.counter + 1;
-    this.showService.editShow(show).subscribe(() => {});
-  }
   ngOnInit() {}
   onSlect(show) {
     this.router.navigate(['/', show.id]);

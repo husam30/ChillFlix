@@ -9,12 +9,22 @@
     <h6>{{ show?.title }}</h6>
 
     <br />
+
     <img
-      (click)="changeStatusOfPage()"
+      (click)="changeStatusOfPage(); timeCounterFunction(show)"
+      style="position:absolute;top: 110px;
+      left: 95px;"
+      src="http://clipart-library.com/images/8iGb5obaT.png"
+      width="30"
+      height="30"
+    />
+    <img
+      (click)="changeStatusOfPage(); timeCounterFunction(show)"
       src="http://img.youtube.com/vi/{{ show?.url }}/0.jpg"
       width="200"
       height="150"
     />
+
     <br />
     <br />
     <button
@@ -46,9 +56,10 @@
 <br />
 <div class="container" *ngIf="this.show1" style="position: relative;">
   <button
-    style="position: relative; z-index:1;  "
+    style="position: fixed; z-index:1; bottom: 55px;
+    left: 0px;   "
     *ngIf="this.show1"
-    class="btn btn-primary"
+    class="btn btn-primary btn-sm"
     (click)="changeStatusOfPage()"
   >
     Go back to vidoe page
