@@ -1,8 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div class="col" *ngIf="router.url === '/'">
+  <div style="text-align:center">
+    <h1>Welcome to {{ title }}!</h1>
+  </div>
+  <br />
 
-<div style="text-align:center">
-  <h1>Welcome to {{ title }}!</h1>
+  <img
+    src="assets/logo-molveno-holiday.png"
+    width="150"
+    height="150"
+    style="position: relative;top: -30px;
+left: 10 px;"
+  />
+  <br />
 </div>
 <br />
-
+<br />
 <router-outlet></router-outlet>

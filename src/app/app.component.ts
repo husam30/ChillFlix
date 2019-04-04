@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Show } from './shared/model/show.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,5 @@ import { Show } from './shared/model/show.model';
 })
 export class AppComponent {
   title = 'ChillFlix';
+  constructor(public router: Router) {}
 }
