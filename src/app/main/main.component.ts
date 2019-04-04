@@ -3,6 +3,7 @@ import { Category } from '../shared/model/category.model';
 import { CategoryService } from '../shared/services/category.service';
 import { ShowService } from '../shared/services/show.service';
 import { Show } from '../shared/model/show.model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -10,6 +11,7 @@ import { Show } from '../shared/model/show.model';
 })
 export class MainComponent implements OnInit {
   constructor(
+    public router: Router,
     private readonly catergoryService: CategoryService,
     private showServive: ShowService
   ) {}

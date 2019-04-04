@@ -81,6 +81,7 @@ export class FilmFormComponent implements OnInit {
   }
   public showMessage1() {
     this.showMs1 = !this.showMs1;
+    window.location.reload();
   }
   public showMessage2() {
     this.showMs2 = !this.showMs2;
